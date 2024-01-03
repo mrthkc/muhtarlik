@@ -1,0 +1,4 @@
+DB_NAME=sample_db
+DB_USER=user
+DB_PASS=password
+DB_PORT=5432
