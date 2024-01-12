@@ -1,5 +1,24 @@
-from typing import List
+from typing import Optional
 from pydantic import BaseModel
+
+
+class MusahitBase(BaseModel):
+    tc_no: str
+    first_name: str
+    last_name: str
+
+    dob: str
+    sex: str
+    mobile: str
+    mail: str
+
+    education: Optional[str] = None
+    profession: Optional[str] = None
+    extra: Optional[str] = None
+
+    il_id: int
+    ilce_id: int
+    muhtarlik_id: int
 
 
 class MuhtarlikBase(BaseModel):

@@ -1,6 +1,7 @@
 from typing import List
 
 from fastapi import Depends, FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 
 import crud
@@ -11,6 +12,13 @@ from database import SessionLocal, engine
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*'],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 # Dependency
@@ -38,3 +46,10 @@ def read_ilces(il_id: int, db: Session = Depends(get_db)):
 def read_muhtarliks(ilce_id: int, db: Session = Depends(get_db)):
     muhtarlix = crud.get_muhtarliks_by_ilce_id(db, ilce_id)
     return muhtarlix
+
+
+@app.post("/musahit/", )
+def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
+    print(musahit)
+    musahit = crud.add_musahit_data(db, musahit)
+    return musahit
