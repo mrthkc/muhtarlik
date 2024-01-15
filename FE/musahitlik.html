@@ -1,41 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 
 <head>
-    <link rel=¨stylesheet¨ type=¨text/css¨ href=¨musahitlik.css¨>
+    <link rel="stylesheet" type="text/css" href="musahitlik.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="musahitlik.js"></script>
+    <title>Müşahitlik</title>
 </head>
 
 <body>
 
-<h1>MUSAHITCILIQUE</h1>
+<h1 class="header">Müşahitlik Formu</h1>
 
-<form>
-    <p>
-        <label>Tc Kimlik:</label> <input id="tc_no" type="text">
-        <label>Ad:</label> <input id="first_name" type="text">
-        <label>Soyad:</label> <input id="last_name" type="text">
-        <label>Doğum Tarihi:</label> <input id="dob" type="text">
-        <label>Cinsiyet:</label> <input id="sex" type="text">
-        <label>Telefon:</label> <input id="mobile" type="text">
-        <label>Email:</label> <input id="mail" type="text">
-
-        <label>İl:</label> <select id="il_select" name="il_select">
-
+<form class="form-container">
+    <div class="form-group">
+        <label for="tc_no">TC Kimlik No</label>
+        <input id="tc_no" type="text" required>
+    </div>
+    <div class="form-group">
+        <label for="first_name">Adı</label>
+        <input id="first_name" type="text" required>
+    </div>
+    <div class="form-group">
+        <label for="last_name">Soyadı</label>
+        <input id="last_name" type="text" required>
+    </div>
+    <div class="form-group">
+        <label for="dob">Doğum Tarihi</label>
+        <input id="dob" type="date" required>
+    </div>
+    <div class="form-group">
+        <label for="sex">Cinsiyet</label>
+        <select id="sex" name="sex" required>
+            <option value="" disabled selected>Seçiniz</option>
+            <option value="male">Erkek</option>
+            <option value="female">Kadın</option>
         </select>
-
-        <label>İlçe:</label> <select id="ilce_select" name="ilce_select">
-
-        </select>
-
-        <label>Mahalle:</label> <select id="mahalle_select" name="mahalle_select">
-
-        </select>
-    </p>
-    <p>
-        <button id="musahit_button" type="button">Yolla Gelsin</button>
-    </p>
+    </div>
+    <div class="form-group">
+        <label for="mobile">Telefon</label>
+        <input id="mobile" type="text" required>
+    </div>
+    <div class="form-group">
+        <label for="mail">E-Posta</label>
+        <input id="mail" type="email" required>
+    </div>
+        <div class="form-group">
+            <label for="il_select">İl</label>
+            <select id="il_select" name="il_select" required>
+                <option value="" disabled selected>Seçiniz</option>
+                <!-- iller için istek -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="ilce_select">İlçe</label>
+            <select id="ilce_select" name="ilce_select" required>
+                <option value="" disabled selected>Seçiniz</option>
+                <!-- ilçeler -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="mahalle_select">Mahalle</label>
+            <select id="mahalle_select" name="mahalle_select" required>
+                <option value="" disabled selected>Seçiniz</option>
+                <!-- mahalleler burada görüne -->
+            </select>
+        </div>
+    <div class="form-group">
+        <button id="musahit_button" type="submit">Gönder</button>
+    </div>
 </form>
 
 </body>
