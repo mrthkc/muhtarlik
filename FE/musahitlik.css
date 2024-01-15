@@ -1,0 +1,88 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #fff;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.header {
+    color: #D32F2F;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f4f4f4;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-group label,
+.form-group input,
+.form-group select {
+    flex: 1 0 100%;
+    margin-bottom: 10px;
+}
+
+.form-group input,
+.form-group select {
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #D32F2F;
+    box-shadow: 0 0 8px rgba(211, 47, 47, 0.2);
+    outline: none;
+}
+
+button#musahit_button {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: #D32F2F;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+button#musahit_button:hover {
+    background-color: #B71C1C;
+}
+
+button#musahit_button:active {
+    transform: translateY(2px);
+}
+
+label[for]:after {
+    content: " *";
+    color: #D32F2F;
+    margin-left: 3px;
+}
