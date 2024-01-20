@@ -5,9 +5,10 @@ from config import Settings
 
 settings = Settings()
 
-SQLALCHEMY_DATABASE_URL = 'postgresql://{}:{}@localhost:{}/{}'.format(
+SQLALCHEMY_DATABASE_URL = 'postgresql://{}:{}@{}:{}/{}'.format(
     settings.db_user,
     settings.db_pass,
+    settings.db_host,
     settings.db_port,
     settings.db_name,
 )
