@@ -2,74 +2,80 @@
 <html lang="tr">
 
 <head>
-    <link rel="stylesheet" type="text/css" href="musahitlik.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="musahitlik.css" rel="stylesheet">
+    <title>Müşahitlik Formu</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="musahitlik.js"></script>
-    <title>Müşahitlik</title>
 </head>
 
-<body>
+<body class="p-3 m-0 border-0 bd-example">
 
-<h1 class="header">Müşahitlik Formu</h1>
+<div class="container">
+    <h1 class="mt-5 mb-4">Müşahitlik Formu</h1>
 
-<form class="form-container">
-    <div class="form-group">
-        <label for="tc_no">TC Kimlik No</label>
-        <input id="tc_no" type="text" required>
-    </div>
-    <div class="form-group">
-        <label for="first_name">Adı</label>
-        <input id="first_name" type="text" required>
-    </div>
-    <div class="form-group">
-        <label for="last_name">Soyadı</label>
-        <input id="last_name" type="text" required>
-    </div>
-    <div class="form-group">
-        <label for="dob">Doğum Tarihi</label>
-        <input id="dob" type="date" required>
-    </div>
-    <div class="form-group">
-        <label for="sex">Cinsiyet</label>
-        <select id="sex" name="sex" required>
-            <option value="" disabled selected>Seçiniz</option>
-            <option value="male">Erkek</option>
-            <option value="female">Kadın</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="mobile">Telefon</label>
-        <input id="mobile" type="text" required>
-    </div>
-    <div class="form-group">
-        <label for="mail">E-Posta</label>
-        <input id="mail" type="email" required>
-    </div>
-        <div class="form-group">
-            <label for="il_select">İl</label>
-            <select id="il_select" name="il_select" required>
+    <form class="row g-3">
+        <div class="col-md-6">
+            <label for="first_name" class="form-label">Adı</label>
+            <input type="text" class="form-control" id="first_name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="last_name" class="form-label">Soyadı</label>
+            <input type="text" class="form-control" id="last_name" required>
+        </div>
+        <div class="col-md-6">
+            <label for="tc_no" class="form-label">TC Kimlik No</label>
+            <input type="text" class="form-control" id="tc_no" required>
+        </div>
+        <div class="col-md-6">
+            <label for="dob" class="form-label">Doğum Tarihi</label>
+            <input type="date" class="form-control" id="dob" required>
+        </div>
+        <div class="col-md-6">
+            <label for="sex" class="form-label">Cinsiyet</label>
+            <select class="form-select" id="sex" required>
+                <option value="" disabled selected>Seçiniz</option>
+                <option value="male">Erkek</option>
+                <option value="female">Kadın</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="mobile" class="form-label">Telefon</label>
+            <input type="text" class="form-control" id="mobile" required>
+        </div>
+        <div class="col-md-6">
+            <label for="mail" class="form-label">E-Posta</label>
+            <input type="email" class="form-control" id="mail" required>
+        </div>
+        <div class="col-md-6">
+            <label for="il_select" class="form-label">İl</label>
+            <select class="form-select" id="il_select" required>
                 <option value="" disabled selected>Seçiniz</option>
                 <!-- iller için istek -->
             </select>
         </div>
-        <div class="form-group">
-            <label for="ilce_select">İlçe</label>
-            <select id="ilce_select" name="ilce_select" required>
+        <div class="col-md-6">
+            <label for="ilce_select" class="form-label">İlçe</label>
+            <select class="form-select" id="ilce_select" required>
                 <option value="" disabled selected>Seçiniz</option>
                 <!-- ilçeler -->
             </select>
         </div>
-        <div class="form-group">
-            <label for="mahalle_select">Mahalle</label>
-            <select id="mahalle_select" name="mahalle_select" required>
+        <div class="col-md-6">
+            <label for="mahalle_select" class="form-label">Mahalle</label>
+            <select class="form-select" id="mahalle_select" required>
                 <option value="" disabled selected>Seçiniz</option>
-                <!-- mahalleler burada görüne -->
+                <!-- mahalleler burada görünecek -->
             </select>
         </div>
-    <div class="form-group">
-        <button id="musahit_button" type="submit">Gönder</button>
-    </div>
-</form>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary" id="musahit_button">Gönder</button>
+        </div>
+    </form>
+</div>
 
 </body>
 </html>
