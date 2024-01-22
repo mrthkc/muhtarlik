@@ -17,9 +17,13 @@
 <body class="p-3 m-0 border-0 bd-example">
 
 <div class="container">
-    <h1 class="mt-5 mb-4">Müşahitlik Formu</h1>
+    <h1 class="mt-5 mb-5">Müşahitlik Formu</h1>
 
     <form class="row g-3">
+        <div class="col-md-12">
+            <label for="tc_no" class="form-label">TC Kimlik No</label>
+            <input type="text" class="form-control" id="tc_no" required>
+        </div>
         <div class="col-md-6">
             <label for="first_name" class="form-label">Adı</label>
             <input type="text" class="form-control" id="first_name" required>
@@ -27,10 +31,6 @@
         <div class="col-md-6">
             <label for="last_name" class="form-label">Soyadı</label>
             <input type="text" class="form-control" id="last_name" required>
-        </div>
-        <div class="col-md-6">
-            <label for="tc_no" class="form-label">TC Kimlik No</label>
-            <input type="text" class="form-control" id="tc_no" required>
         </div>
         <div class="col-md-6">
             <label for="dob" class="form-label">Doğum Tarihi</label>
@@ -52,7 +52,7 @@
             <label for="mail" class="form-label">E-Posta</label>
             <input type="email" class="form-control" id="mail" required>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label for="il_select" class="form-label">İl</label>
             <select class="form-select" id="il_select" required>
 
@@ -60,7 +60,7 @@
                 <!-- iller için istek -->
             </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label for="ilce_select" class="form-label">İlçe</label>
             <select class="form-select" id="ilce_select" required>
 
@@ -68,19 +68,45 @@
                 <!-- ilçeler -->
             </select>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <label for="mahalle_select" class="form-label">Mahalle</label>
             <select class="form-select" id="mahalle_select" required>
                 <option value="" disabled selected>Seçiniz</option>
                 <!-- mahalleler burada görünecek -->
             </select>
         </div>
-        <div class="col-12">
+
+        <div class="col-md-12">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="kvkk" required>
+                <label class="form-check-label" for="kvkk">
+                    Kişisel verilerimin işlenmesini kabul ediyorum.
+                </label>
+            </div>
+        </div>
+
+        <div class="col-12 mt-5">
             <button type="submit" class="btn btn-primary" id="musahit_button">Gönder</button>
         </div>
     </form>
 </div>
 
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Başarılı!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        Form başarıyla gönderildi. Teşekkür ederiz.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

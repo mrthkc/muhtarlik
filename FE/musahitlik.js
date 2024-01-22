@@ -80,7 +80,10 @@ $(document).ready(function() {
             type: 'POST',
             url: 'http://127.0.0.1:8000/musahit/',
             data: JSON.stringify(data),
-            success: function(result) { console.log(result) },
+            success: function(result) {
+                console.log(result);
+                $('#successModal').modal('show');
+            },
             contentType: "application/json",
             dataType: 'json'
         });
