@@ -1,4 +1,5 @@
 from datetime import datetime
+from fastapi import HTTPException, status
 from typing import Optional
 from pydantic import BaseModel, EmailStr, validator, Field
 
@@ -24,6 +25,15 @@ class MusahitBase(BaseModel):
     @validator('dob')
     def parse_dob(cls, v):
         return str(datetime.strptime(v, '%Y-%m-%d').date())
+
+    @validator('mobile')
+    def parse_mobile(cls, v):
+        if not v[:1] == "0":
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="invalid mobile no"
+            )
+        return v
 
 
 class MuhtarlikBase(BaseModel):
