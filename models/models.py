@@ -9,7 +9,7 @@ from sqlalchemy import (
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import mapped_column
 
-from database import Base
+from models.database import Base
 
 
 class Il(Base):

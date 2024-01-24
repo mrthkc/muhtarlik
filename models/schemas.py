@@ -1,5 +1,5 @@
 from typing import Optional
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 
 
 class MusahitBase(BaseModel):
@@ -10,7 +10,7 @@ class MusahitBase(BaseModel):
     dob: str
     sex: str
     mobile: str
-    mail: str
+    mail: EmailStr
 
     education: Optional[str] = None
     profession: Optional[str] = None

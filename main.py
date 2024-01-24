@@ -1,17 +1,17 @@
 from typing import List
-
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy.exc import IntegrityError
 
-import crud
-from helper import verify_tc_kimlik
-import models
-import schemas
-from database import SessionLocal, engine
+from models.models import Base
+import models.crud as crud
+import models.schemas as schemas
+from models.database import SessionLocal, engine
+from utils.nvi import verify_tc_kimlik
+from utils.mail import send_mail
 
-models.Base.metadata.create_all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 app.add_middleware(
@@ -59,6 +59,7 @@ def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
         )
     try:
         musahit = crud.add_musahit_data(db, musahit)
+        send_mail(musahit)
     except IntegrityError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,

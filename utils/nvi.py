@@ -1,6 +1,6 @@
 from suds.client import Client
 
-from schemas import MusahitBase
+from models.schemas import MusahitBase
 
 
 def verify_tc_kimlik(musahit: MusahitBase):
