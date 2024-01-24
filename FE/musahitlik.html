@@ -14,82 +14,135 @@
     <title>Müşahitlik</title>
 </head>
 
-<body class="p-3 m-0 border-0 bd-example">
+<body>
+<div class="row" style="height: 5.5rem; background: #F9F9F9">
+    <div style="position: absolute; justify-content: space-evenly; align-items: center; display: inline-flex">
+        <a class="pt-3" href="https://tip.org.tr/" title="Türkiye İşçi Partisi">
+            <img src="https://tip.org.tr/wp-content/uploads/2023/09/tip-site-header.png" alt="Türkiye İşçi Partisi" width="314" height="70">
+        </a>
+                <ul class="nav nav-fill"  style="line-height: 1.6rem; font-size: 1rem; font-weight: 900;">
+                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/" aria-current="page">ANA SAYFA</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/aciklamalar/">AÇIKLAMALAR</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/bagis-yap/">BAĞIŞ YAP</a></li>
+                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/iletisim/">İLETİŞİM</a></li>
+                </ul>
+            <a class="btn btn-danger" style="line-height: 1.3rem; font-size: 1rem; font-weight: 700;" href="https://tip.org.tr/tipe-katil/">TİP'E KATIL</a>
 
-<div class="container">
-    <h1 class="mt-5 mb-5">Müşahitlik Formu</h1>
+    </div>
 
-    <form class="row g-3">
-        <div class="col-md-12">
-            <label for="tc_no" class="form-label">TC Kimlik No</label>
-            <input type="text" class="form-control" id="tc_no" required>
-        </div>
-        <div class="col-md-6">
-            <label for="first_name" class="form-label">Adı</label>
-            <input type="text" class="form-control" id="first_name" required>
-        </div>
-        <div class="col-md-6">
-            <label for="last_name" class="form-label">Soyadı</label>
-            <input type="text" class="form-control" id="last_name" required>
-        </div>
-        <div class="col-md-6">
-            <label for="dob" class="form-label">Doğum Tarihi</label>
-            <input type="date" class="form-control" id="dob" required>
-        </div>
-        <div class="col-md-6">
-            <label for="sex" class="form-label">Cinsiyet</label>
-            <select class="form-select" id="sex" required>
-                <option value="" disabled selected>Seçiniz</option>
-                <option value="male">Erkek</option>
-                <option value="female">Kadın</option>
-            </select>
-        </div>
-        <div class="col-md-6">
-            <label for="mobile" class="form-label">Telefon</label>
-            <input type="text" class="form-control" id="mobile" required>
-        </div>
-        <div class="col-md-6">
-            <label for="mail" class="form-label">E-Posta</label>
-            <input type="email" class="form-control" id="mail" required>
-        </div>
-        <div class="col-md-12">
-            <label for="il_select" class="form-label">İl</label>
-            <select class="form-select" id="il_select" required>
 
-                <option value="" disabled selected>Seçiniz</option>
-                <!-- iller için istek -->
-            </select>
-        </div>
-        <div class="col-md-12">
-            <label for="ilce_select" class="form-label">İlçe</label>
-            <select class="form-select" id="ilce_select" required>
-
-                <option value="" disabled selected>Seçiniz</option>
-                <!-- ilçeler -->
-            </select>
-        </div>
-        <div class="col-md-12">
-            <label for="mahalle_select" class="form-label">Mahalle</label>
-            <select class="form-select" id="mahalle_select" required>
-                <option value="" disabled selected>Seçiniz</option>
-                <!-- mahalleler burada görünecek -->
-            </select>
-        </div>
-
-        <div class="col-md-12">
-            <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="kvkk" required>
-                <label class="form-check-label" for="kvkk">
-                    Kişisel verilerimin işlenmesini kabul ediyorum.
-                </label>
-            </div>
-        </div>
-
-        <div class="col-12 mt-5">
-            <button type="submit" class="btn btn-primary" id="musahit_button">Gönder</button>
-        </div>
-    </form>
 </div>
+<div class="mobile-menu"></div>
+
+
+
+
+<div class="row g-3">
+    <div class="container pt-5 col-md-5">
+        <h1 class="mt-5 mb-2 col-md-8" style="font-weight: 900; font-size: 2rem; color: #041B4E;">Müşahitlik Formu</h1>
+        <p class="col-md-8 mb-3" style="font-weight: 400; font-size: 1rem; color: #737B7D">Türkiye İşçi Partisi Müşahitlik Formu ile demokratik süreçlere katılımınızı sağlayarak partimizin adalet ve eşitlik mücadelesine destek olun. Formu doldurun, değişimi birlikte hayata geçirelim.</p>
+
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="tc_no" class="form-label required">TC Kimlik No</label>
+                <input type="text" class="form-control" id="tc_no" pattern="\d{11}" maxlength="11" minlength="11" required>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6">
+                <label for="first_name" class="form-label required">Adı</label>
+                <input type="text" class="form-control" id="first_name" required>
+            </div>
+            <div class="col-md-6">
+                <label for="last_name" class="form-label required">Soyadı</label>
+                <input type="text" class="form-control" id="last_name" required>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6">
+                <label for="dob" class="form-label required">Doğum Tarihi</label>
+                <input type="date" class="form-control" id="dob" required>
+            </div>
+            <div class="col-md-6">
+                <label for="sex" class="form-label required">Cinsiyet</label>
+                <select class="form-select" id="sex" required>
+                    <option value="" disabled selected>Seçiniz</option>
+                    <option value="male">Erkek</option>
+                    <option value="female">Kadın</option>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6">
+                <label for="mobile" class="form-label required">Telefon</label>
+                <input type="text" class="form-control" id="mobile" required>
+            </div>
+            <div class="col-md-6">
+                <label for="mail" class="form-label required">E-Posta</label>
+                <input type="email" class="form-control" id="mail" required>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-6">
+                <label for="il_select" class="form-label required">İl</label>
+                <select class="form-select" id="il_select" required>
+
+                    <option value="" disabled selected>Seçiniz</option>
+                </select>
+            </div>
+            <div class="col-md-6">
+                <label for="ilce_select" class="form-label required">İlçe</label>
+                <select class="form-select" id="ilce_select" required>
+
+                    <option value="" disabled selected>Seçiniz</option>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <!--I want to display this only if the user selects anything above-->
+            <div class="col-md-6" >
+                <label for="mahalle_select" class="form-label required">Mahalle</label>
+                <select class="form-select" id="mahalle_select" required>
+                    <option value="" disabled selected>Seçiniz</option>
+                </select>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-6">
+                <label for="education" class="form-label">Öğrenim Durumu</label>
+                <select class="form-select" id="education">
+                    <option value="" disabled selected>Seçiniz</option>
+                    <option value="ilkokul">İlkokul</option>
+                    <option value="ortaokul">Ortaokul</option>
+                    <option value="lise">Lise</option>
+                    <option value="universite">Üniversite</option>
+                    <option value="lisansustu">Lisansüstü</option>
+                </select>
+            </div>
+            <div class="col-6">
+                <label for="profession" class="form-label">Meslek</label>
+                <input type="text" class="form-control" id="profession">
+            </div>
+            <div class="w-100"></div>
+            <div class="col-md-12">
+                <label for="extra" class="form-label">Eklemek İstediğiniz Bilgiler</label>
+                <textarea class="form-control" id="extra" rows="3"></textarea>
+            </div>
+
+            <div class="col-md-12">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="kvkk" required>
+                    <label class="form-check-label" for="kvkk">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#kvkkModal">KVKK Aydınlatma Metni</a>'ni okudum ve kabul ediyorum.
+                    </label>
+                </div>
+            </div>
+
+            <div class="col-12 mt-5">
+                <button type="submit" class="btn btn-danger col-md-4" id="musahit_button">Başvur</button>
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-4 h-100" style="text-align: right">
+        <img  style="margin-left: auto" src="assets/birlikte.png">
+    </div>
+</div>
+
 
 <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -107,6 +160,71 @@
     </div>
   </div>
 </div>
+
+<div class="modal fade" id="kvkkModal" tabindex="-1" aria-labelledby="kvkkModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="kvkkModalLabel">KVKK Metni</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+              <p style="text-align: center;"><strong style="color: #000000;">AYDINLATMA METNİ</strong></p>
+              <p style="text-align: center;"><strong style="color: #000000;">Türkiye İşçi Partisi</strong>, verilerinizin hukuka uygun olarak işlenmesini sağlamak ve gizliliğinizi korumak amacıyla mümkün olan en üst seviyede güvenlik tedbirini almaktadır.</p>
+              <p style="text-align: center;">Amacımız; 6698 sayılı Kişisel Verilerin Korunması Kanunu’nun <strong>(“Kanun”)</strong> 10. Maddesi uyarınca kişisel verilerinizin toplanma yöntemleri, işlenme amaçları, aktarıldığı alıcı grupları, işlemenin dayanağı olan hukuki sebepler ve haklarınız konularında sizi en şeffaf şekilde bilgilendirmektir.</p>
+              <p style="text-align: center;"><strong style="color: #000000;">1.Veri Sorumlusu</strong><br>
+                  Kişisel verileriniz; veri sorumlusu olarak Türkiye İşçi Partisi (“TİP”) tarafından aşağıda açıklanan kapsamda toplanmakta ve işlenmektedir.</p>
+              <p style="text-align: center;"><strong style="color: #000000;">2.Kişisel Verilerin Hangi Amaç ve Hukuki Sebeple İşleneceği</strong><br>
+                  TİP tarafından işlenmekte olan kişisel verileriniz ve kategorileri aşağıda belirtilmiştir:<br>
+                  <strong style="color: #000000;">Kimlik Verisi &gt;</strong> Ad, Soyad, Yaş, Cinsiyet, TCKN<br>
+                  <strong style="color: #000000;">İletişim Verisi &gt;</strong> Telefon Numarası, Cep Telefonu Numarası, İl Bilgisi, İlçe Bilgisi, E-posta Adresi<br>
+                  <strong style="color: #000000;">Meslek – Eğitim Verisi &gt;</strong> Öğrenim Durumu, Meslek<br>
+                  <strong style="color: #000000;">Finans Verisi &gt;</strong> IBAN, Banka Bilgisi, Hesap Numarası, Bağış Tutarı<br>
+                  <strong style="color: #000000;">Parti Üyeliği Verisi &gt;</strong> Üyelik Bilgisi<br>
+                  <strong style="color: #000000;">Diğer &gt;</strong><br>
+                  Toplanan kişisel verileriniz,<br>
+                  Parti üyelik süreçlerinin yürütülmesi,<br>
+                  Parti gönüllülük faaliyetlerinin yürütülmesi,<br>
+                  Partiye yapılan bağışların alınması,<br>
+                  6698 sayılı Kanun’un 5. ve 6. maddelerinde belirtilen kişisel veri işleme şartları dâhilinde işlenecektir. Kişisel verileriniz, işleme amacı ortadan kalktığında Kişisel Verilerin Silinmesi, Yok edilmesi veya Anonim Hale Getirilmesi Hakkında Yönetmelik’e uygun olarak imha edilecektir.</p>
+              <p style="text-align: center;"><strong style="color: #000000;">3. İşlenen Kişisel Verilerin Aktarımı</strong><br>
+                  Toplanan kişisel verileriniz; üye kaydının yapılması amacıyla Yargıtay Cumhuriyet Başsavcılığına, hukuki yükümlülüğün yerine getirilmesi amacıyla kanunen yetkili kamu kurum ve kuruluşlarına, siyasi parti faaliyetleri kapsamında iş ortaklarına ve tedarikçilere, 6698 sayılı Kanun’un 8. ve 9. maddelerinde belirtilen kişisel veri işleme şartları ve amaçları çerçevesinde aktarılacaktır.</p>
+              <p style="text-align: center;"><strong style="color: #000000;">4. Kişisel Veri Toplamanın Yöntemi</strong><br>
+                  Kişisel verileriniz, “TİP’e Katıl Formları” aracılığıyla paylaştığınız bilgi ve belgelerden dijital ve fiziksel ortamda toplanmaktadır.</p>
+              <p style="text-align: center;"><strong style="color: #000000;">5. Kişisel Veri Sahibinin Kanunda Sayılan Hakları</strong><br>
+                  Kişisel veri sahibi olarak, haklarınıza ilişkin taleplerinizi aşağıda düzenlenen yöntemlerle iletmeniz durumunda TİP talebin niteliğine göre talebi en kısa sürede ve en geç otuz gün içinde sonuçlandıracaktır.</p>
+              <p style="text-align: center;">Bu kapsamda kişisel verilerinizle ilgili olarak;<br>
+                  • Kişisel veri işlenip işlenmediğini öğrenme, Kişisel verileri işlenmişse buna ilişkin bilgi talep etme,<br>
+                  • Kişisel verilerin işlenme amacını ve bunların amacına uygun kullanılıp kullanılmadığını öğrenme,<br>
+                  • Yurt içinde veya yurt dışında kişisel verilerin aktarıldığı üçüncü kişileri bilme,<br>
+                  • Kişisel verilerin eksik veya yanlış işlenmiş olması hâlinde bunların düzeltilmesini talep etme ve bu kapsamda yapılan işlemin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,<br>
+                  • 6698 sayılı Kanun ve ilgili diğer kanun hükümlerine uygun olarak işlenmiş olmasına rağmen, işlenmesini gerektiren sebeplerin ortadan kalkması halinde kişisel verilerin silinmesini veya yok edilmesini talep etme ve bu kapsamda yapılan işlemin kişisel verilerin aktarıldığı üçüncü kişilere bildirilmesini isteme,<br>
+                  • İşlenen verilerin münhasıran otomatik sistemler vasıtasıyla analiz edilmesi suretiyle kişinin kendisi aleyhine bir sonucun ortaya çıkmasına itiraz etme,<br>
+                  • Kişisel verilerin kanuna aykırı olarak işlenmesi sebebiyle zarara uğraması halinde zararın giderilmesini talep etme, haklarınız mevcuttur.</p>
+              <p style="text-align: center;">Yukarıda belirtilen haklarınızı kullanma ile ilgili talebinizi, Türkçe olarak; veri sorumlusu sıfatıyla TİP’in Kocatepe Mahallesi Selanik Caddesi No: 41/7 Çankaya/Ankara adresine kimliğinizi tevsik edici belgeler ile yazılı olarak iletebilir, tip@tip.org.tr adresine kayıtlı elektronik posta olarak, e-postanız aracılığıyla tip@tip.org.tr adresine veya Kişisel Verileri Koruma Kurumu tarafından belirlenen diğer yöntemler ile iletebilirsiniz.</p>
+              <p style="text-align: center;">Veri sahibi başvuru formuna buradan erişebilirsiniz.</p>
+              <p style="text-align: center;">TİP’in cevap vermeden önce kimliğinizi doğrulama hakkı saklıdır.</p>
+              <p style="text-align: center;">Başvurunuzda;<br>
+                  1. Adınızın,&nbsp;soyadınızın&nbsp;ve başvuru yazılı ise imzanızın,<br>
+                  2. Türkiye Cumhuriyeti vatandaşları için T.C. Kimlik Numaranızın, yabancı iseniz uyruğunuzun, pasaport numaranızın veya varsa kimlik numaranızın,<br>
+                  3. Tebligata esas yerleşim yeri veya iş yeri adresinizin,<br>
+                  4. Varsa bildirime esas elektronik posta adresi, telefon ve faks numaranızın,<br>
+                  5. Talep konunuzun,<br>
+                  bulunması&nbsp;zorunlu olup varsa konuya ilişkin bilgi ve belgelerin de başvuruya eklenmesi gerekmektedir.</p>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer" style="background-color: #012169">
+    <div class="container" style="text-align: center">
+        <span style="color: #F9F9F9">Türkiye İşçi Partisi <b>2024</b></span>
+    </div>
+</footer>
 
 </body>
 </html>

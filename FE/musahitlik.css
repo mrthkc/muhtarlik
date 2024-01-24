@@ -1,6 +1,4 @@
-:root {
-    --bs-primary: #D32F2F;
-}
+
 
 body {
     font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -20,20 +18,7 @@ body {
     font-weight: 600;
 }
 
-.form-control:focus {
-    border-color: var(--bs-primary);
-    box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
-}
-
-.form-select:focus {
-    border-color: var(--bs-primary);
-    box-shadow: 0 0 0 0.25rem rgba(211, 47, 47, 0.25);
-}
-
-.container {
-    max-width: 60rem;
-}
-
-h1 {
-    color: var(--bs-primary);
+.required:after {
+    content: "*";
+    color: red;
 }
