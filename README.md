@@ -14,6 +14,15 @@ Install python 3.8.10
 
 ## Run Service ##
 
-* ```./venv/bin/uvicorn main:app --reload```
+* ```cd app/```
+
+* ```../venv/bin/uvicorn main:app --reload```
 
 Please navigate to **<http:localhost:8000/docs>**
+
+
+## Docker ##
+
+* ```docker compose build --no-cache ```
+
+* ```docker compose up -d ```
