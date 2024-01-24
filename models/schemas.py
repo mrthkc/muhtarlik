@@ -1,15 +1,16 @@
+from datetime import datetime
 from typing import Optional
-from pydantic import BaseModel, EmailStr
+from pydantic import BaseModel, EmailStr, validator, Field
 
 
 class MusahitBase(BaseModel):
-    tc_no: str
+    tc_no: str = Field(..., max_length=11, min_length=11)
     first_name: str
     last_name: str
 
     dob: str
     sex: str
-    mobile: str
+    mobile: str = Field(..., max_length=11, min_length=11)
     mail: EmailStr
 
     education: Optional[str] = None
@@ -19,6 +20,10 @@ class MusahitBase(BaseModel):
     il_id: int
     ilce_id: int
     muhtarlik_id: int
+
+    @validator('dob')
+    def parse_dob(cls, v):
+        return str(datetime.strptime(v, '%Y-%m-%d').date())
 
 
 class MuhtarlikBase(BaseModel):
