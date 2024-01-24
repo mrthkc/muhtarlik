@@ -1,5 +1,11 @@
-DB_HOST=localhost
-DB_NAME=sample_db
+DB_HOST=db-host
+DB_NAME=db-name
 DB_USER=user
 DB_PASS=password
 DB_PORT=5432
+
+SMTP_HOST=smtp-host
+SMTP_PORT=port
+SMTP_PASS=password
+
+SENDER_MAIL=test@tip.org.tr
