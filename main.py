@@ -1,10 +1,12 @@
 from typing import List
 
-from fastapi import Depends, FastAPI
+from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy.exc import IntegrityError
 
 import crud
+from helper import verify_tc_kimlik
 import models
 import schemas
 from database import SessionLocal, engine
@@ -50,6 +52,16 @@ def read_muhtarliks(ilce_id: int, db: Session = Depends(get_db)):
 
 @app.post("/musahit/", )
 def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
-    print(musahit)
-    musahit = crud.add_musahit_data(db, musahit)
+    if not verify_tc_kimlik(musahit):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Invalid TC Kimlik No"
+        )
+    try:
+        musahit = crud.add_musahit_data(db, musahit)
+    except IntegrityError:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Already Existing TC Kimlik No"
+        )
     return musahit

@@ -1,4 +1,11 @@
-from sqlalchemy import Column, Integer, String, ForeignKey, Date
+from sqlalchemy import (
+    Column,
+    Integer,
+    String,
+    ForeignKey,
+    Date,
+    UniqueConstraint
+)
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import mapped_column
 
@@ -65,3 +72,18 @@ class Musahit(Base):
     il = relationship("Il", back_populates="musahitler")
     ilce = relationship("Ilce", back_populates="musahitler")
     muhtarliklar = relationship("Muhtarlik", back_populates="musahitler")
+
+    __table_args__ = (
+        UniqueConstraint(
+            'tc_no',
+            name='_tc_kimlik_uc'
+        ),
+        UniqueConstraint(
+            'mail',
+            name='_mail_uc'
+        ),
+        UniqueConstraint(
+            'mobile',
+            name='_mobile_uc'
+        ),
+    )
