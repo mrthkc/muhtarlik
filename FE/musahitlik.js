@@ -58,7 +58,7 @@ $(document).ready(function() {
 
     });
 
-    $("#musahit_button").on("click", function(e) {
+    $("#musahit_button").on("click", function() {
 
         var tc_no = $("#tc_no").val();
         var first_name = $("#first_name").val();
@@ -93,22 +93,6 @@ $(document).ready(function() {
             "extra": extra
         };
 
-        var isValid = true;
-        $(this).find(':input[required]').each(function() {
-            if ($(this).val() === '') {
-                isValid = false;
-            }
-        });
-
-        if (!$("#kvkk").is(':checked')) {
-            isValid = false;
-        }
-
-        if (!isValid) {
-            e.preventDefault();
-            alert('Lütfen tüm gerekli alanları doldurun ve KVKK metnini kabul edin.');
-        }
-
         $.ajax({
             type: 'POST',
             url: 'http://127.0.0.1:8000/musahit/',
@@ -121,5 +105,38 @@ $(document).ready(function() {
         });
 
     });
+
+    function checkInputFormat(){
+        var isValid = true;
+
+        $(this).find(':input[required]').each(function() {
+            if ($(this).val() === '') {
+                isValid = false;
+            }
+        });
+
+        if (!$("#kvkk").is(':checked')) {
+            isValid = false;
+        }
+
+        $('form input').each(function() {
+            var inputType = $(this).attr('type');
+            if (inputType == 'tel') {
+                var telPattern = /^5[0-9]{9}$/;
+                if (!telPattern.test($(this).val())) {
+                    isValid = false;
+                }
+            } else if (inputType == 'id'){
+                var idPattern = /^[0-9]{11}$/;
+                if (!idPattern.test($(this).val())) {
+                    isValid = false;
+                }
+            }
+        });
+
+        $('#musahit_button').prop('disabled', !isValid);
+    }
+    $('form input').on('change keyup', checkInputFormat);
+    checkInputFormat();
 
 });

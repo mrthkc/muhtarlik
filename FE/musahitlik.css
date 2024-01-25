@@ -1,12 +1,12 @@
 
 
 body {
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
 }
 
 .btn-primary {
     background-color: var(--bs-primary);
-    border-color: var(--bs-primary);
 }
 
 .btn-primary:hover {
@@ -21,4 +21,68 @@ body {
 .required:after {
     content: "*";
     color: red;
+}
+
+
+input[type="text"], input[type="id"], input[type="email"], input[type="date"], input[type="tel"] {
+    background-color: #F2F2F2;
+    radius: 0.5rem;
+    height: 2.75rem;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+        border: 0.5px solid #55B962;
+        background-color: #F2F2F2;
+        box-shadow: none;
+    }
+    &::placeholder {
+        color: #BDBDBD;
+    }
+}
+
+.textarea{
+    background-color: #F2F2F2;
+    radius: 0.5rem;
+    height: 6.5rem;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+        border: 0.5px solid #55B962;
+        background-color: #F2F2F2;
+        box-shadow: none;
+    }
+    &::placeholder {
+        color: #BDBDBD;
+    }
+}
+
+.form-select {
+    background-color: #F2F2F2;
+    radius: 0.5rem;
+    height: 2.75rem;
+    font-family: 'Poppins', sans-serif;
+    &:focus {
+        border: 0.5px solid #55B962;
+        background-color: #F2F2F2;
+        box-shadow: none;
+    }
+    &::placeholder {
+        color: #BDBDBD;
+    }
+}
+
+label {
+    font-family: 'Poppins', sans-serif;
+    weight: 700;
+    size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: #012169;
+}
+
+.submit-button {
+    width: 360px; height: 55px; padding: 10px; background: #B71C25; border-radius: 4px; justify-content: center; align-items: center; gap: 10px; display: inline-flex;
+    color: white; font-size: 16px; font-family: Poppins; font-weight: 900; line-height: 25.60px; letter-spacing: 0.50px; word-wrap: break-word;
+    &:hover {
+        background-color: #79070E;
+        border-color: #B71C1C;
+    }
 }
