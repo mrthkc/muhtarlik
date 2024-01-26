@@ -122,7 +122,7 @@ $(document).ready(function() {
         $('form input').each(function() {
             var inputType = $(this).attr('type');
             if (inputType == 'tel') {
-                var telPattern = /^5[0-9]{9}$/;
+                var telPattern = /^0[0-9]{10}$/;
                 if (!telPattern.test($(this).val())) {
                     isValid = false;
                 }
