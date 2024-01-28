@@ -52,11 +52,18 @@ def read_muhtarliks(ilce_id: int, db: Session = Depends(get_db)):
 
 @app.post("/api/musahit/", )
 def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
-    if not verify_tc_kimlik(musahit):
+    try:
+        if not verify_tc_kimlik(musahit):
+            raise HTTPException(
+                status_code=status.HTTP_400_BAD_REQUEST,
+                detail="Invalid TC Kimlik No"
+            )
+    except Exception:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Invalid TC Kimlik No"
         )
+
     try:
         musahit = crud.add_musahit_data(db, musahit)
     except IntegrityError:
