@@ -32,25 +32,25 @@ def get_db():
         db.close()
 
 
-@app.get("/ils/", response_model=List[schemas.Il])
+@app.get("/api/ils/", response_model=List[schemas.Il])
 def read_ils(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
     ils = crud.get_ils(db, skip=skip, limit=limit)
     return ils
 
 
-@app.get("/ilces/", response_model=List[schemas.Ilce])
+@app.get("/api/ilces/", response_model=List[schemas.Ilce])
 def read_ilces(il_id: int, db: Session = Depends(get_db)):
     ilces = crud.get_ilces_by_il_id(db, il_id)
     return ilces
 
 
-@app.get("/muhtarliks/", response_model=List[schemas.Muhtarlik])
+@app.get("/api/muhtarliks/", response_model=List[schemas.Muhtarlik])
 def read_muhtarliks(ilce_id: int, db: Session = Depends(get_db)):
     muhtarlix = crud.get_muhtarliks_by_ilce_id(db, ilce_id)
     return muhtarlix
 
 
-@app.post("/musahit/", )
+@app.post("/api/musahit/", )
 def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
     if not verify_tc_kimlik(musahit):
         raise HTTPException(
