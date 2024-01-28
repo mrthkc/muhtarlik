@@ -1,7 +1,7 @@
 $(document).ready(function() {
     $("#mahalle_select").parent().hide();
 
-    $.get("http://127.0.0.1:8000/ils/", (data) => {
+    $.get("https://form.tip.org.tr/api/ils/", (data) => {
         for(var k in data) {
 
             var x = document.getElementById("il_select");
@@ -25,7 +25,7 @@ $(document).ready(function() {
         option.selected = true;
         x.add(option);
 
-        $.get("http://127.0.0.1:8000/ilces/?il_id=" + il_val, (data) => {
+        $.get("https://form.tip.org.tr/api/ilces/?il_id=" + il_val, (data) => {
             for(var k in data) {
 
                 var x = document.getElementById("ilce_select");
@@ -42,7 +42,7 @@ $(document).ready(function() {
         var ilce_val= $(this).val();
         $("#mahalle_select").empty();
         
-        $.get("http://127.0.0.1:8000/muhtarliks/?ilce_id=" + ilce_val, (data) => {
+        $.get("https://form.tip.org.tr/api/muhtarliks/?ilce_id=" + ilce_val, (data) => {
             for(var k in data) {
 
                 var x = document.getElementById("mahalle_select");
@@ -95,7 +95,7 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'http://127.0.0.1:8000/musahit/',
+            url: 'https://form.tip.org.tr/api/musahit/',
             data: JSON.stringify(data),
             success: function(result) {
                 $('#successModal').modal('show');

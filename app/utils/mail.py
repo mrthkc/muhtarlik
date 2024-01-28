@@ -1,5 +1,6 @@
 import ssl
 import smtplib
+from email.mime.text import MIMEText
 from fastapi import HTTPException, status
 import traceback
 
@@ -12,35 +13,32 @@ def send_mail(musahit: Musahit):
     port = Settings().smtp_port
     password = Settings().smtp_pass
     sender_email = Settings().sender_mail
+    recipient_email = musahit.mail
+    first_name = musahit.first_name
+    last_name = musahit.last_name
 
     print(host, port, password, sender_email)
 
     context = ssl.create_default_context()
+    context.check_hostname = False
+    context.verify_mode = ssl.CERT_NONE
 
-    message = """\
-Subject: Müşahit / Sandık Kurulu Üyesi Başvurunuz Alındı
-
-    Değerli {} {},
-Müşahit / Sandık kurulu üyesi başvurunuz kaydedilmiştir.
-
-Sevgiler.
-Türkiye İşçi Partisi
-""".format(musahit.first_name, musahit.last_name).encode('utf-8')
+    subject = "Müşahit / Sandık Kurulu Üyesi Başvurunuz Alındı"
+    body = f"Değerli {first_name} {last_name},\n\nMüşahit / Sandık kurulu üyesi başvurunuz kaydedilmiştir.\n\nSevgiler,\nTürkiye İşçi Partisi"
+    message = MIMEText(body, 'plain', 'utf-8')
+    message['Subject'] = subject
+    message['From'] = sender_email
+    message['To'] = recipient_email
 
     server = None
     try:
-        server = smtplib.SMTP(host=host, port=port, timeout=60)
+        server = smtplib.SMTP(host, port, timeout=60)
+        server.set_debuglevel(1)
         server.ehlo()
-        server.starttls(context=context)  # Secure
+        server.starttls(context=context)
         server.ehlo()
-        server.login(user=sender_email, password=password)
-
-        # send mail
-        server.sendmail(
-            from_addr=sender_email,
-            to_addrs=musahit.mail,
-            msg=message
-        )
+        server.login(sender_email, password)
+        server.sendmail(sender_email, recipient_email, message.as_string())
 
     except Exception as e:
         print(e)
