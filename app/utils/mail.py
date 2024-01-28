@@ -17,8 +17,6 @@ def send_mail(musahit: Musahit):
     first_name = musahit.first_name
     last_name = musahit.last_name
 
-    print(host, port, password, sender_email)
-
     context = ssl.create_default_context()
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
@@ -40,13 +38,8 @@ def send_mail(musahit: Musahit):
         server.login(sender_email, password)
         server.sendmail(sender_email, recipient_email, message.as_string())
 
-    except Exception as e:
-        print(e)
-        traceback.print_exc()
-        raise HTTPException(
-            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
-            detail="sending mail error"
-        )
-    finally:
-        if server:
-            server.quit()
+    except Exception:
+        pass
+
+    if server:
+        server.quit()

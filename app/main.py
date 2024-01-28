@@ -59,10 +59,10 @@ def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
         )
     try:
         musahit = crud.add_musahit_data(db, musahit)
-        send_mail(musahit)
     except IntegrityError:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Already Existing TC Kimlik No"
         )
+    send_mail(musahit)
     return musahit
