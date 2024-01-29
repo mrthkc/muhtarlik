@@ -1,5 +1,4 @@
-// var host = "https://form.tip.org.tr/";
-var host = "http://localhost:8000/";
+var host = "https://form.tip.org.tr/";
 $(document).ready(function() {
     $("#mahalle_select").parent().hide();
 
