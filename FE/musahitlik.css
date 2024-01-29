@@ -86,3 +86,33 @@ label {
         border-color: #B71C1C;
     }
 }
+
+.errorDetail {
+    font-family: 'Poppins', sans-serif;
+    font-weight:400;
+    size: 14px;
+    line-height: 18px;
+    letter-spacing: 0.25px;
+    color: #79070E;
+}
+
+#desktop_header{
+    display:block;
+}
+ 
+#mobile_header{
+    display:none;
+}
+
+/* Hide the desktop image with mobile devices */
+@media (max-width: 480px) {
+	#right_media {
+		display: none;
+	}
+
+    .submit-button{
+        width: 100%;
+    }
+}
+
+

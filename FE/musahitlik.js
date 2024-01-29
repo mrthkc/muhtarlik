@@ -1,7 +1,9 @@
+// var host = "https://form.tip.org.tr/";
+var host = "http://localhost:8000/";
 $(document).ready(function() {
     $("#mahalle_select").parent().hide();
 
-    $.get("https://form.tip.org.tr/api/ils/", (data) => {
+    $.get(host + "api/ils/", (data) => {
         for(var k in data) {
 
             var x = document.getElementById("il_select");
@@ -25,10 +27,8 @@ $(document).ready(function() {
         option.selected = true;
         x.add(option);
 
-        $.get("https://form.tip.org.tr/api/ilces/?il_id=" + il_val, (data) => {
+        $.get(host + "api/ilces/?il_id=" + il_val, (data) => {
             for(var k in data) {
-
-                var x = document.getElementById("ilce_select");
                 var option = document.createElement("option");
 
                 option.value = data[k].id;
@@ -41,11 +41,17 @@ $(document).ready(function() {
     $("#ilce_select").on("change", function() {
         var ilce_val= $(this).val();
         $("#mahalle_select").empty();
-        
-        $.get("https://form.tip.org.tr/api/muhtarliks/?ilce_id=" + ilce_val, (data) => {
-            for(var k in data) {
 
-                var x = document.getElementById("mahalle_select");
+        var x = document.getElementById("mahalle_select");
+        var option = document.createElement("option");
+        option.value = "";
+        option.text = "Mahalle Seçiniz";
+        option.disabled = true;
+        option.selected = true;
+        x.add(option);
+        
+        $.get(host + "api/muhtarliks/?ilce_id=" + ilce_val, (data) => {
+            for(var k in data) {
                 var option = document.createElement("option");
 
                 option.value = data[k].id;
@@ -58,7 +64,8 @@ $(document).ready(function() {
 
     });
 
-    $("#musahit_button").on("click", function() {
+    $("#musahit_button").on("click", function(event) {
+        event.preventDefault();
 
         var tc_no = $("#tc_no").val();
         var first_name = $("#first_name").val();
@@ -95,15 +102,33 @@ $(document).ready(function() {
 
         $.ajax({
             type: 'POST',
-            url: 'https://form.tip.org.tr/api/musahit/',
+            url: host + 'api/musahit/',
             data: JSON.stringify(data),
             success: function(result) {
                 $('#successModal').modal('show');
+            },
+            error: function(XMLHttpRequest, textStatus, errorThrown) {
+                errorMessage = XMLHttpRequest.responseJSON.detail;
+                if (errorMessage == "Invalid TC Kimlik No") {
+                    $('#errorDetail').text("Ad, soyad ve doğum tarihi uyumsuz. Lütfen ilgili alanları kimliğinizdeki gibi yazınız.");
+                }
+                else if (errorMessage == "Already Existing TC Kimlik No") {
+                    $('#errorDetail').text("Daha önce yaptığınız başvuru kaydedilmiştir. Lütfen il/ilçe örgütlerimizden haber bekleyiniz.");
+                }
+                else {
+                    $('#errorDetail').text("Beklemediğimiz bir hata ile karşılaştık.");
+                }
+                $('#errorModal').modal('show');
             },
             contentType: "application/json",
             dataType: 'json'
         });
 
+    });
+
+    $("#successButton").on("click", function(event) {
+        setTimeout(1500);
+        window.location.reload();
     });
 
     function checkInputFormat(){
@@ -136,6 +161,7 @@ $(document).ready(function() {
 
         $('#musahit_button').prop('disabled', !isValid);
     }
+
     $('form input').on('change keyup', checkInputFormat);
     checkInputFormat();
 

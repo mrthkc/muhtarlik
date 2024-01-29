@@ -17,36 +17,38 @@
 </head>
 
 <body>
-<div class="row" style="height: 5.5rem; background: #F9F9F9">
+
+<div class="row g-0" style="height: 5.5rem; background: #F9F9F9">
     <div style="position: absolute; justify-content: space-evenly; align-items: center; display: inline-flex">
-        <a class="p-2 ms-5" href="https://tip.org.tr/" title="Türkiye İşçi Partisi">
-            <img src="https://tip.org.tr/wp-content/uploads/2023/09/tip-site-header.png" alt="Türkiye İşçi Partisi" height="70">
+        <a class="p-2 ms-1" href="https://tip.org.tr/" title="Türkiye İşçi Partisi">
+            <img id="desktop_header" src="https://tip.org.tr/wp-content/uploads/2023/09/tip-site-header.png" alt="Türkiye İşçi Partisi" height="60">
         </a>
-                <ul class="nav nav-fill d-none d-lg-flex"  style="line-height: 1.6rem; font-size: 1rem; font-weight: 900;">
-                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/" aria-current="page">ANA SAYFA</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/aciklamalar/">AÇIKLAMALAR</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/bagis-yap/">BAĞIŞ YAP</a></li>
-                    <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/iletisim/">İLETİŞİM</a></li>
-                </ul>
-            <a class="btn btn-danger" style="line-height: 1.3rem; font-size: 1rem; font-weight: 700;" href="https://tip.org.tr/tipe-katil/">TİP'E KATIL</a>
-
+        <ul class="nav nav-fill d-none d-lg-flex"  style="line-height: 1.6rem; font-size: 1rem; font-weight: 900;">
+            <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/" aria-current="page">ANA SAYFA</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/aciklamalar/">AÇIKLAMALAR</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/bagis-yap/">BAĞIŞ YAP</a></li>
+            <li class="nav-item"><a class="nav-link" style="color: #0A0101;" href="https://tip.org.tr/iletisim/">İLETİŞİM</a></li>
+        </ul>
+        <a class="btn btn-danger" style="line-height: 1.3rem; font-size: 1rem; font-weight: 700;" href="https://tip.org.tr/tipe-katil/">TİP'E KATIL</a>
     </div>
-
-
 </div>
 
-<div class="row">
-    <div class="container pt-5 col-md-7">
+<div class="row g-0">
+    <div class="container pt-1 col-md-7">
         <h1 class="mt-5 m-2 col-md-8" style="font-weight: 900; font-size: 2rem; color: #041B4E;">Müşahitlik / Sandık Kurulu Üyeliği Formu</h1>
         <p class="col-md-8 m-2" style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 1rem; line-height: 25.6px; letter-spacing: 0.3px; color: #737B7D">
-            Türkiye İşçi Partisi Müşahitlik Formu ile demokratik süreçlere katılımınızı sağlayarak partimizin adalet ve eşitlik mücadelesine destek olun. Formu doldurun, değişimi birlikte hayata geçirelim.</p>
-
-        <form class="row g-3 gx-5 p-2">
+            Türkiye İşçi Partisi Müşahitlik Formu ile demokratik süreçlere katılımınızı sağlayarak partimizin adalet ve eşitlik mücadelesine destek olun. Formu doldurun, değişimi birlikte hayata geçirelim.
+        </p>
+        <p class="col-md-8 m-2" style="font-family: 'Open Sans', sans-serif; font-weight: 400; font-size: 0.75rem; line-height: 14px; letter-spacing: 0.3px; color: #79070E">
+            Lütfen ad, soyad ve doğum tarihinizi kimliğinizdeki gibi yazınız.
+        </p>
+        <form class="row w-100 g-3 gx-5 p-2">
             <div class="col-md-6">
                 <label for="tc_no" class="form-label required">TC Kimlik No</label>
                 <input placeholder="***********" type="id" class="form-control" id="tc_no" pattern="\d{11}" maxlength="11" minlength="11" required>
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
+
             <div class="col-md-6">
                 <label for="first_name" class="form-label required">Ad</label>
                 <input placeholder="Adınızı Giriniz" type="text" class="form-control" id="first_name" required>
@@ -55,7 +57,8 @@
                 <label for="last_name" class="form-label required">Soyad</label>
                 <input placeholder="Soyadınızı Giriniz" type="text" class="form-control" id="last_name" required>
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
+
             <div class="col-md-6">
                 <label for="dob" class="form-label required">Doğum Tarihi</label>
                 <input type="date" max="2006-03-31" class="form-control" id="dob" required>
@@ -68,7 +71,8 @@
                     <option value="female">Kadın</option>
                 </select>
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
+
             <div class="col-md-6">
                 <label for="mobile" class="form-label required">Telefon</label>
                 <input type="tel" placeholder="0 ile Başlayacak Şekilde Giriniz" pattern="0[0-9]{10}" class="form-control" id="mobile" required>
@@ -77,7 +81,8 @@
                 <label for="mail" class="form-label required">E-Posta</label>
                 <input type="email" placeholder="E-Posta Adresinizi Giriniz" class="form-control" id="mail" required>
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
+
             <div class="col-md-6">
                 <label for="il_select" class="form-label required">İl</label>
                 <select class="form-select" id="il_select" required>
@@ -92,7 +97,7 @@
                     <option value="" disabled selected>Seçiniz</option>
                 </select>
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
 
             <div class="col-md-6" >
                 <label for="mahalle_select" class="form-label required">Mahalle</label>
@@ -100,8 +105,9 @@
                     <option value="" disabled selected>Seçiniz</option>
                 </select>
             </div>
-            <div class="w-100"></div>
-            <div class="col-6">
+            <div class="row w-100"></div>
+
+            <div class="col-md-6">
                 <label for="education" class="form-label">Öğrenim Durumu</label>
                 <select class="form-select" id="education">
                     <option value="" disabled selected>Seçiniz</option>
@@ -112,11 +118,12 @@
                     <option value="lisansustu">Lisansüstü</option>
                 </select>
             </div>
-            <div class="col-6">
+            <div class="col-md-6">
                 <label for="profession" class="form-label">Meslek</label>
                 <input type="text" placeholder="Mesleğinizi Yazınız" class="form-control" id="profession">
             </div>
-            <div class="w-100"></div>
+            <div class="row w-100"></div>
+
             <div class="col-md-12">
                 <label for="extra" class="form-label">Eklemek İstedikleriniz</label>
                 <textarea placeholder="“Demokratik süreçlere katılım ve adil bir seçim ortamını desteklemek amacıyla müşahit olarak sorumluluk almak istiyorum.”" class="form-control textarea" id="extra" rows="3"></textarea>
@@ -125,20 +132,20 @@
             <div class="col-md-12">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="kvkk" required>
-                    <label class="form-check-label" for="kvkk" style="font-family: 'Open Sans'; font-weight: bold; font-size: 1rem; line-height: 1.25rem; letter-spacing: 0.15px">
-                        <a href="#" data-bs-toggle="modal" data-bs-target="#kvkkModal" style="color: #0077FF; font-weight: normal">KVKK Aydınlatma Metni</a>'ni Okudum, Anladım, Onaylıyorum.
+                    <label class="form-check-label" for="kvkk" style="font-family: 'Poppins', sans-serif; font-weight: normal; font-size: 1rem; line-height: 1.25rem; letter-spacing: 0.15px">
+                        <a href="#" data-bs-toggle="modal" data-bs-target="#kvkkModal" style="color: #0077FF; font-weight: bold;">KVKK Aydınlatma Metni</a>'ni Okudum, Anladım, Onaylıyorum.
                     </label>
                 </div>
             </div>
 
-            <div class="col-12 mt-5">
-                <button type="submit" disabled class="btn btn-danger col-md-4 submit-button" id="musahit_button">BAŞVUR</button>
+            <div class="col-md-12">
+                <button type="button" disabled class="btn btn-danger submit-button" id="musahit_button">BAŞVUR</button>
             </div>
         </form>
     </div>
 
-    <div class="col-md-3 h-100" style="text-align: right">
-        <img  style="margin-left: auto" src="assets/birlikte.png">
+    <div id="right_media"  class="col-md-3 h-100" style="text-align: right">
+        <img style="margin-left: auto" src="assets/birlikte.png">
     </div>
 </div>
 
@@ -151,7 +158,26 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Form başarıyla gönderildi. Teşekkür ederiz.
+        Form başarıyla kaydedildi. Teşekkür ederiz.
+      </div>
+      <div class="modal-footer">
+        <button id="successButton" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="errorModalLabel">Hata ile Karşılaştık</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <span id="errorDetail" class="errorDetail">
+
+        </span>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Kapat</button>
