@@ -1,8 +1,8 @@
 import ssl
 import smtplib
 from email.mime.text import MIMEText
-from fastapi import HTTPException, status
-import traceback
+from email.header import Header
+from email.utils import formataddr
 
 from config import Settings
 from models.models import Musahit
@@ -22,10 +22,12 @@ def send_mail(musahit: Musahit):
     context.verify_mode = ssl.CERT_NONE
 
     subject = "Müşahit / Sandık Kurulu Üyesi Başvurunuz Alındı"
-    body = f"Değerli {first_name} {last_name},\n\nMüşahit / Sandık kurulu üyesi başvurunuz kaydedilmiştir.\n\nSevgiler,\nTürkiye İşçi Partisi"
+    body = f"Değerli {first_name} {last_name},\n\nMüşahit / Sandık kurulu üyesi başvurunuz kaydedilmiştir.\nSizinle en kısa zamanda iletişime geçeceğiz.\n\nSevgiler,\nTürkiye İşçi Partisi"
     message = MIMEText(body, 'plain', 'utf-8')
     message['Subject'] = subject
-    message['From'] = sender_email
+    message['From'] = formataddr(
+        (str(Header('Türkiye İşçi Partisi', 'utf-8')), sender_email)
+    )
     message['To'] = recipient_email
 
     server = None

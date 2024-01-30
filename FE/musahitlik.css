@@ -24,7 +24,7 @@ body {
 }
 
 
-input[type="text"], input[type="id"], input[type="email"], input[type="date"], input[type="tel"] {
+input[type="text"], input[type="id"], input[type="email"], input[type="date"], input[type="tel"], input[type="number"] {
     background-color: #F2F2F2;
     radius: 0.5rem;
     height: 2.75rem;
@@ -37,6 +37,13 @@ input[type="text"], input[type="id"], input[type="email"], input[type="date"], i
     &::placeholder {
         color: #BDBDBD;
     }
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 .textarea{
@@ -105,11 +112,12 @@ label {
 }
 
 /* Hide the desktop image with mobile devices */
-@media (max-width: 480px) {
+@media (max-width: 800px) {
 	#right_media {
 		display: none;
 	}
-
+}
+@media (max-width: 480px) {
     .submit-button{
         width: 100%;
     }

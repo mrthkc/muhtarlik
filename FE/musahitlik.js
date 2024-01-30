@@ -1,4 +1,8 @@
 var host = "https://form.tip.org.tr/";
+var isValid = true;
+var firstValidation = true;
+
+
 $(document).ready(function() {
     $("#mahalle_select").parent().hide();
 
@@ -66,6 +70,16 @@ $(document).ready(function() {
     $("#musahit_button").on("click", function(event) {
         event.preventDefault();
 
+        firstValidation = false;
+        checkInputFormat();
+
+        if (!isValid) {
+            $('html, body').animate({scrollTop: $('.invalid-feedback:visible:first').parent().offset().top}, 1000);            
+            $('#errorDetail').text("Lütfen formdaki hataları giderdikten sonra tekrar deneyiniz");
+            $('#errorModal').modal('show');            
+            return false;
+        }
+
         var tc_no = $("#tc_no").val();
         var first_name = $("#first_name").val();
         var last_name = $("#last_name").val();
@@ -109,7 +123,7 @@ $(document).ready(function() {
             error: function(XMLHttpRequest, textStatus, errorThrown) {
                 errorMessage = XMLHttpRequest.responseJSON.detail;
                 if (errorMessage == "Invalid TC Kimlik No") {
-                    $('#errorDetail').text("Ad, soyad ve doğum tarihi uyumsuz. Lütfen ilgili alanları kimliğinizdeki gibi yazınız.");
+                    $('#errorDetail').text("Geçersiz TC kimlik numarası girdiniz. Lütfen ilgili alanları kimliğinizdeki gibi yazınız.");
                 }
                 else if (errorMessage == "Already Existing TC Kimlik No") {
                     $('#errorDetail').text("Daha önce yaptığınız başvuru kaydedilmiştir. Lütfen il/ilçe örgütlerimizden haber bekleyiniz.");
@@ -130,38 +144,60 @@ $(document).ready(function() {
         window.location.reload();
     });
 
-    function checkInputFormat(){
-        var isValid = true;
+    function checkInputFormat() {
+        isValid = true;
+        if (firstValidation) {
+            return;
+        }
 
-        $(this).find(':input[required]').each(function() {
+        $('.invalid-feedback').hide();
+
+        $('input[required]').each(function() {
             if ($(this).val() === '') {
                 isValid = false;
+                $(this).parent().find('.invalid-feedback').show();
             }
         });
 
-        if (!$("#kvkk").is(':checked')) {
-            isValid = false;
-        }
+        $('select[required]').each(function() {
+            if($(this).find(':selected').prop('disabled')){
+                isValid = false;
+                $(this).parent().find('.invalid-feedback').show();
+            }
+        });        
+
+        $('#kvkk').each(function() {
+            if (!$(this).is(':checked')) {
+                isValid = false;
+                $(this).parent().find('.invalid-feedback').show();
+            }
+        });
+
+        // if (tcno_dogrula($('#tc_no').val()) == false) {
+        //     isValid = false;
+        //     $('#tc_no').parent().find('.invalid-feedback').show();
+        // }
 
         $('form input').each(function() {
-            var inputType = $(this).attr('type');
-            if (inputType == 'tel') {
+            var inputId = $(this).attr('id');
+            if (inputId == 'mobile') {
                 var telPattern = /^0[0-9]{10}$/;
                 if (!telPattern.test($(this).val())) {
                     isValid = false;
-                }
-            } else if (inputType == 'id'){
-                var idPattern = /^[0-9]{11}$/;
-                if (!idPattern.test($(this).val())) {
-                    isValid = false;
+                    $(this).parent().find('.invalid-feedback').show();
                 }
             }
         });
 
-        $('#musahit_button').prop('disabled', !isValid);
     }
 
-    $('form input').on('change keyup', checkInputFormat);
-    checkInputFormat();
+    $('input[required]').on('change keyup', function (event) {
+        checkInputFormat();
+    });
+    $('select[required]').on('change', function (event) {
+        checkInputFormat();
+    });
+
+    function tcno_dogrula(tcno) { tcno=String(tcno);if(tcno.substring(0,1)==='0'){return!1}if(tcno.length!==11){return!1} var ilkon_array=tcno.substr(0,10).split('');var ilkon_total=hane_tek=hane_cift=0; for(var i=j=0;i<9;++i){j=parseInt(ilkon_array[i],10);if(i&1){hane_cift+=j}else{hane_tek+=j}ilkon_total+=j} if((hane_tek*7-hane_cift)%10!==parseInt(tcno.substr(-2,1),10)){return!1} ilkon_total+=parseInt(ilkon_array[9],10);if(ilkon_total%10!==parseInt(tcno.substr(-1),10)){return!1} return!0 }
 
 });

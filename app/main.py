@@ -1,3 +1,4 @@
+import traceback
 from typing import List
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,7 +9,7 @@ from models.models import Base
 import models.crud as crud
 import models.schemas as schemas
 from models.database import SessionLocal, engine
-from utils.nvi import verify_tc_kimlik
+from utils.nvi import verify_tc_kimlik_algorithm
 from utils.mail import send_mail
 
 Base.metadata.create_all(bind=engine)
@@ -53,7 +54,7 @@ def read_muhtarliks(ilce_id: int, db: Session = Depends(get_db)):
 @app.post("/api/musahit/", )
 def add_musahit(musahit: schemas.MusahitBase, db: Session = Depends(get_db)):
     try:
-        if not verify_tc_kimlik(musahit):
+        if not verify_tc_kimlik_algorithm(musahit.tc_no):
             raise HTTPException(
                 status_code=status.HTTP_400_BAD_REQUEST,
                 detail="Invalid TC Kimlik No"
