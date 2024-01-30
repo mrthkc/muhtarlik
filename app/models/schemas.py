@@ -10,7 +10,7 @@ class MusahitBase(BaseModel):
     last_name: str
 
     dob: str
-    sex: str
+    sex: Optional[str] = ""
     mobile: str = Field(..., max_length=11, min_length=11)
     mail: EmailStr
 

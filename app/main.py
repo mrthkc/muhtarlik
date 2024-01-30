@@ -1,4 +1,3 @@
-import traceback
 from typing import List
 from fastapi import Depends, FastAPI, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
