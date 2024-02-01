@@ -78,6 +78,7 @@ class Musahit(Base):
             'tc_no',
             name='_tc_kimlik_uc'
         ),
+        '''
         UniqueConstraint(
             'mail',
             name='_mail_uc'
@@ -86,4 +87,5 @@ class Musahit(Base):
             'mobile',
             name='_mobile_uc'
         ),
+        '''
     )
