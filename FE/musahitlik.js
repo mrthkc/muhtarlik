@@ -5,6 +5,7 @@ var firstValidation = true;
 
 $(document).ready(function() {
     $("#mahalle_select").parent().hide();
+    $("#other_gender").hide();
 
     $.get(host + "api/ils/", (data) => {
         for(var k in data) {
@@ -79,6 +80,15 @@ $(document).ready(function() {
         }
     });
 
+    $("#gender").on("change", function() {
+        if ($(this).val() === "diger") {
+            $("#other_gender").show();
+        } else {
+            $("#other_gender").hide();
+        }
+
+    });    
+
     $("#musahit_button").on("click", function(event) {
         event.preventDefault();
 
@@ -96,7 +106,18 @@ $(document).ready(function() {
         var first_name = $("#first_name").val();
         var last_name = $("#last_name").val();
         var dob = $("#dob").val();
-        var sex = $("#sex").val();
+
+        var gender = "";
+        if ($("#gender").val() === "diger") {
+            if ($("#other_gender").val() === "") {
+                gender = "Diğer";
+            } else {
+                gender = $("#other_gender").val();
+            }
+        } else {
+            gender = $("#gender").val();
+        }
+
         var mobile = $("#mobile").val();
         var mail = $("#mail").val();
         var il_id = $("#il_select").val();
@@ -112,7 +133,7 @@ $(document).ready(function() {
             "last_name": last_name,
 
             "dob": dob,
-            "sex": sex,
+            "sex": gender,
             "mobile": mobile,
             "mail": mail,
 
