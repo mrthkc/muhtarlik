@@ -185,10 +185,10 @@ $(document).ready(function() {
             }
         });
 
-        // if (tcno_dogrula($('#tc_no').val()) == false) {
-        //     isValid = false;
-        //     $('#tc_no').parent().find('.invalid-feedback').show();
-        // }
+        if (tcno_dogrula($('#tc_no').val()) == false) {
+             isValid = false;
+             $('#tc_no').parent().find('.invalid-feedback').show();
+        }
 
         $('form input').each(function() {
             var inputId = $(this).attr('id');
