@@ -9,7 +9,8 @@ services:
     ports:
       - "127.0.0.1:8000:8000"
     restart: unless-stopped
-
+    networks:
+      - local
   db:    
     image: postgres:13.8-bullseye
     container_name: postgres-container
@@ -23,6 +24,9 @@ services:
     volumes:
       - ./data/postgresqldb:/var/lib/postgresql/data
     restart: unless-stopped
+    networks:
+      - local
 
-
-
+networks:
+  local:
+    external: true
