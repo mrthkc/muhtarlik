@@ -1,4 +1,5 @@
-var host = "https://form.tip.org.tr/";
+// var host = "https://form.tip.org.tr/";
+var host = "http://localhost:8000/";
 var isValid = true;
 var firstValidation = true;
 
@@ -216,6 +217,14 @@ $(document).ready(function() {
             if (inputId == 'mobile') {
                 var telPattern = /^0[0-9]{10}$/;
                 if (!telPattern.test($(this).val())) {
+                    isValid = false;
+                    $(this).parent().find('.invalid-feedback').show();
+                }
+            }
+            else if (inputId == 'mail') {
+                var email = $('#mail').val();
+                var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailRegex.test(email)) {
                     isValid = false;
                     $(this).parent().find('.invalid-feedback').show();
                 }
