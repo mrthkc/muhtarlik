@@ -72,7 +72,7 @@ class Musahit(Base):
     il = relationship("Il", back_populates="musahitler")
     ilce = relationship("Ilce", back_populates="musahitler")
     muhtarliklar = relationship("Muhtarlik", back_populates="musahitler")
-
+   
     __table_args__ = (
-        UniqueConstraint('tc_no', name='_tc_kimlik_uc')
+        UniqueConstraint('tc_no', name='_tc_kimlik_uc'),
     )
