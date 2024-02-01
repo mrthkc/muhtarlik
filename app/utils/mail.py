@@ -21,8 +21,8 @@ def send_mail(musahit: Musahit):
     context.check_hostname = False
     context.verify_mode = ssl.CERT_NONE
 
-    subject = "Müşahit / Sandık Kurulu Üyesi Başvurunuz Alındı"
-    body = f"Değerli {first_name} {last_name},\n\nMüşahit / Sandık kurulu üyesi başvurunuz kaydedilmiştir.\nSizinle en kısa zamanda iletişime geçeceğiz.\n\nSevgiler,\nTürkiye İşçi Partisi"
+    subject = "Müşahit / Sandık Kurulu Üyesi / Gönüllü Başvurunuz Alındı"
+    body = f"Sayın {first_name} {last_name},\n\nMüşahit / Sandık Kurulu Üyesi / Gönüllü başvurunuz kaydedilmiştir.\nİl / İlçe örgütümüz sizinle en kısa zamanda iletişime geçecektir.\n\nSevgiler,\nTürkiye İşçi Partisi"
     message = MIMEText(body, 'plain', 'utf-8')
     message['Subject'] = subject
     message['From'] = formataddr(

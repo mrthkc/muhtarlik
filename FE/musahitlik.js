@@ -67,6 +67,18 @@ $(document).ready(function() {
 
     });
 
+    var oldProfession = "";
+    $("#avukat").on("click", function(event) {
+        if ($(this).is(':checked')) {
+            oldProfession = $("#profession").val();
+            $("#profession").val("Avukat");
+            $("#profession").hide();
+        } else {
+            $("#profession").val(oldProfession);
+            $("#profession").show();
+        }
+    });
+
     $("#musahit_button").on("click", function(event) {
         event.preventDefault();
 
