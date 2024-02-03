@@ -1,5 +1,5 @@
-// var host = "https://form.tip.org.tr/";
-var host = "http://localhost:8000/";
+var host = "https://form.tip.org.tr/";
+// var host = "http://localhost:8000/";
 var isValid = true;
 var firstValidation = true;
 
