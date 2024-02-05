@@ -128,6 +128,11 @@ $(document).ready(function() {
         var education = $("#education").val();
         var extra = $("#extra").val();
 
+        var gorev_sandik = $("#gorev-sandik").is(':checked') ? 1 : 0;
+        var gorev_musahit = $("#gorev-musahit").is(':checked') ? 1 : 0;
+        var gorev_okul = $("#gorev-okul").is(':checked') ? 1 : 0;
+        var gorev_diger = $("#gorev-diger").is(':checked') ? 1 : 0;
+
         var data = { 
             "tc_no": tc_no,
             "first_name": first_name,
@@ -144,7 +149,13 @@ $(document).ready(function() {
 
             "education": education,
             "profession": profession,
-            "extra": extra
+            "extra": extra,
+            
+            "gorev_sandik": gorev_sandik,
+            "gorev_musahit": gorev_musahit,
+            "gorev_okul": gorev_okul,
+            "gorev_diger": gorev_diger
+
         };
 
         $.ajax({
