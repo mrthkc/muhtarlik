@@ -4,7 +4,8 @@ from sqlalchemy import (
     String,
     ForeignKey,
     Date,
-    UniqueConstraint
+    UniqueConstraint,
+    Boolean
 )
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import mapped_column
@@ -65,6 +66,11 @@ class Musahit(Base):
     profession = Column(String, nullable=True)
     extra = Column(String, nullable=True)
 
+    gorev_sandik = Column(Boolean, nullable=False)
+    gorev_musahit = Column(Boolean, nullable=False)
+    gorev_okul = Column(Boolean, nullable=False)
+    gorev_diger = Column(Boolean, nullable=False)
+
     il_id = mapped_column(ForeignKey("il.id"))
     ilce_id = mapped_column(ForeignKey("ilce.id"))
     muhtarlik_id = mapped_column(ForeignKey("muhtarlik.id"))
@@ -72,7 +78,7 @@ class Musahit(Base):
     il = relationship("Il", back_populates="musahitler")
     ilce = relationship("Ilce", back_populates="musahitler")
     muhtarliklar = relationship("Muhtarlik", back_populates="musahitler")
-   
+
     __table_args__ = (
         UniqueConstraint('tc_no', name='_tc_kimlik_uc'),
     )

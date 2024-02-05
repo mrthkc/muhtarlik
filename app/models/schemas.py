@@ -18,6 +18,11 @@ class MusahitBase(BaseModel):
     profession: Optional[str] = None
     extra: Optional[str] = None
 
+    gorev_sandik: Optional[bool]
+    gorev_musahit: Optional[bool]
+    gorev_okul: Optional[bool]
+    gorev_diger: Optional[bool]
+
     il_id: int
     ilce_id: int
     muhtarlik_id: int
